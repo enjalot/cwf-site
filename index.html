@@ -10,6 +10,17 @@
 
   <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
 <style>
+    body { 
+      margin:0;position:fixed;top:0;right:0;bottom:0;left:0; 
+    }
+    .background {
+      margin:0;position:fixed;top:0;right:0;bottom:0;left:0; 
+      z-index: 0;
+    }
+    .foreground {
+      margin:0;position:fixed;top:0;right:0;bottom:0;left:0; 
+      z-index: 1;
+    }
     
 </style>
   <!--[if lt IE 9]>
@@ -17,7 +28,22 @@
   <![endif]-->
 </head>
 
+
 <body>
   <!-- <script src="js/scripts.js"></script> -->
+  <div id="observablehq-393679bd" class="background">
+    <div class="observablehq-viewof-canvas"></div>
+  </div>
+  <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+    import define from "https://api.observablehq.com/@codingwithfire/coding-with-doom-fire.js?v=3";
+    (new Runtime).module(define, name => {
+      if (name === "viewof canvas") return Inspector.into("#observablehq-393679bd .observablehq-viewof-canvas")();
+    });
+  </script>
+
+  <div class="foreground"></div>
+    <h1>Coding with Fire</h1>
+</div>
 </body>
 </html>
